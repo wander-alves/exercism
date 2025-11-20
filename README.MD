@@ -9,25 +9,33 @@ No caso, eu estou fazendo a trilha de JavaScript, porém, a plataforma tem conte
 
 ## Desafios já concluídos
 
-- Lucian's Luscious Lasagna
-- Annalyn's infiltration
-- Freelancer Rates
-- Poetry Club Door Policy
-- Elyses Enchantments
-- Vehicle Purchase
-- Bird Watcher
-- Mixed Juices
-- Lucky Numbers
-- Elyses Analytics Enchantments
-- Elyses Looping Enchantments
-- Amusement Park
-- Coordinate Tranformation
-- Fruit Picker
-- High Score Board
-- Lasagna Master
-- Factory Sensors
-- Elyses Tranformative Enchantments
-- Custom Signs
-- Windowing System
-- Hello World
-- Two Fer
+- [x] Hello World
+- [x] Lucian's Luscious Lasagna
+- [x] Annalyn's infiltration
+- [x] Freelancer Rates
+- [x] Poetry Club Door Policy
+- [x] Elyses Enchantments
+- [x] Vehicle Purchase
+- [x] Bird Watcher
+- [x] Mixed Juices
+- [x] Lucky Numbers
+- [x] Elyses Analytics Enchantments
+- [x] Elyses Destructive Enchantments
+- [x] Train Driver
+- [x] Elyses Looping Enchantments
+- [x] Amusement Park
+- [ ] Pizza Order
+- [x] Coordinate Tranformation
+- [x] Fruit Picker
+- [ ] Translation Service
+- [ ] High Score Board
+- [ ] Ozan's Playlist
+- [x] Lasagna Master
+- [x] Factory Sensors
+- [x] Elyses Tranformative Enchantments
+- [x] Windowing System
+- [ ] Regular Chatbot
+- [ ] Appointment Time
+- [ ] Captain's Log
+- [ ] Recycling Bot
+- [x] Two Fer
