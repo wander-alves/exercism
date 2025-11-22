@@ -35,7 +35,7 @@ No caso, eu estou fazendo a trilha de JavaScript, porém, a plataforma tem conte
 - [x] Elyses Tranformative Enchantments
 - [x] Windowing System
 - [ ] Regular Chatbot
-- [ ] Appointment Time
+- [x] Appointment Time
 - [ ] Captain's Log
 - [ ] Recycling Bot
 - [x] Two Fer

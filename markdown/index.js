@@ -1,9 +1,18 @@
-function wrap(text, tag) {
-  return `<${tag}>${text}</${tag}>`;
+const symbolsMap = {
+  "_": "em",
+  "*": "em",
+  "__": "strong",
+  "**": "strong",
+  "#": "h1",
+  "##": "h2",
+  "###": "h3",
+  "####": "h4",
+  "#####": "h5",
+  "######": "h6",
 }
 
-function isTag(text, tag) {
-  return text.startsWith(`<${tag}>`);
+function contentWrapper(text, tag) {
+  return `<${tag}>${text}</${tag}>`;
 }
 
 function parser(markdown, delimiter, tag) {
@@ -12,20 +21,20 @@ function parser(markdown, delimiter, tag) {
   return markdown.replace(pattern, replacement);
 }
 
-function parse__(markdown) {
+function parseBold(markdown) {
   return parser(markdown, '__', 'strong');
 }
 
-function parse_(markdown) {
+function parseItalic(markdown) {
   return parser(markdown, '_', 'em');
 }
 
 function parseText(markdown, list) {
-  const parsedText = parse_(parse__(markdown));
+  const parsedText = parseItalic(parseBold(markdown));
   if (list) {
     return parsedText;
   } else {
-    return wrap(parsedText, 'p');
+    return contentWrapper(parsedText, 'p');
   }
 }
 
@@ -42,7 +51,7 @@ function parseHeader(markdown, list) {
     return [null, list];
   }
   const headerTag = `h${count}`;
-  const headerHtml = wrap(markdown.substring(count + 1), headerTag);
+  const headerHtml = contentWrapper(markdown.substring(count + 1), headerTag);
   if (list) {
     return [`</ul>${headerHtml}`, false];
   } else {
@@ -52,7 +61,7 @@ function parseHeader(markdown, list) {
 
 function parseLineItem(markdown, list) {
   if (markdown.startsWith('*')) {
-    const innerHtml = wrap(parseText(markdown.substring(2), true), 'li');
+    const innerHtml = contentWrapper(parseText(markdown.substring(2), true), 'li');
     if (list) {
       return [innerHtml, true];
     } else {
@@ -72,12 +81,15 @@ function parseParagraph(markdown, list) {
 
 function parseLine(markdown, list) {
   let [result, inListAfter] = parseHeader(markdown, list);
+
   if (result === null) {
     [result, inListAfter] = parseLineItem(markdown, list);
   }
+
   if (result === null) {
     [result, inListAfter] = parseParagraph(markdown, list);
   }
+  
   if (result === null) {
     throw new Error('Invalid markdown');
   }
@@ -88,11 +100,13 @@ export function parse(markdown) {
   const lines = markdown.split('\n');
   let result = '';
   let list = false;
+  
   for (let i = 0; i < lines.length; i++) {
     let [lineResult, newList] = parseLine(lines[i], list);
     result += lineResult;
     list = newList;
   }
+
   if (list) {
     return result + '</ul>';
   } else {

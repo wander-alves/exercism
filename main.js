@@ -1,18 +1,5 @@
-import {
-  getListOfWagons,
-  fixListOfWagons,
-  correctListOfWagons,
-  extendRouteInformation,
-  separateTimeOfArrival
-} from "./train-driver/index.js";
+import { createAppointment, getAppointmentDetails, isValid, timeBetween, updateAppointment } from "./appointment-time/index.js";
 
-let routeInformation = {
-  from: 'Berlin',
-  to: 'Hamburg',
-  length: '100',
-  timeOfArrival: '10:10',
-};
-
-const result = separateTimeOfArrival(routeInformation);
-
-console.log(result);
+console.log(
+  isValid('2022-02-11T23:00:00.000', '2022-02-08T23:00:00.000')
+)
