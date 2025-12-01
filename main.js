@@ -1,5 +1,5 @@
-import { randomPlanetClass, randomShipRegistryNumber, randomStardate } from "./captains-log/index.js";
+import { colorCode } from "./resistor-color/index.js";
 
 console.log(
-  randomPlanetClass()
+  colorCode('white')
 )
