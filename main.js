@@ -1,5 +1,17 @@
-import { colorCode } from "./resistor-color/index.js";
+import { removeDuplicates, hasTrack, addTrack, listArtists } from './ozans-playlist/index.js';
 
-console.log(
-  colorCode('white')
+
+
+const playlist = [
+  'All Mine - Portishead',
+  'Sight to Behold - Devendra Banhart',
+  'Sour Times - Portishead',
+];
+
+log(
+  listArtists(playlist)
 )
+
+function log(callback){
+  console.log(callback);
+}
